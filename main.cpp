@@ -11,7 +11,6 @@ typedef BST<Monthly> MonthlyBST;
 
 using namespace std;
 
-
 void printMonthly(Monthly &m);
 bool readFile(MonthlyBST &bst);
 int getYearMonthKey(int year, int month);
@@ -38,7 +37,8 @@ int getYearMonthKey(int year, int month)
     return (year*100) + month;
 }
 
-bool readFile(MonthlyBST &bst) {
+bool readFile(MonthlyBST &bst)
+{
     WeatherData windlogEntry;
     MonthlyMap entryMap;
 
@@ -58,7 +58,6 @@ bool readFile(MonthlyBST &bst) {
 
     while (getline(infile, line))
     {
-
         dataFileName = "data/" + line;
 
         dinfile.open(dataFileName.c_str());
@@ -99,70 +98,85 @@ bool readFile(MonthlyBST &bst) {
     return true;
 }
 
-bool readMonthAndYear(int &month, int &year){
+bool readMonthAndYear(int &month, int &year)
+{
 
     cout << "\nPlease enter specified month(integer only): ";
     cin >> month;
     cout << "\nPlease enter specified year(integer only): ";
     cin >> year;
 
-    if (month > 12 || month < 1 || year < 1 || year > 3000) {
+    if (month > 12 || month < 1 || year < 1 || year > 3000)
+    {
         cout << "Invalid month or year";
         return false;
     }
-    else return true;
+    else
+        return true;
 }
 
 //Function used to enable user enter the year of their choice. Prevents repetition
-bool readYearChoice(int &year){
+bool readYearChoice(int &year)
+{
 
     cout << "\nPlease enter specified year(integer only): ";
     cin >> year;
 
-    if (year < 0 || year > 3000) {
+    if (year < 0 || year > 3000)
+    {
         cout << "Invalid year";
         return false;
     }
-    else return true;
+    else
+        return true;
 }
 
-void printMonthly(Monthly &m) {
+void printMonthly(Monthly &m)
+{
     cout << m.GetYMK() << endl;
 }
 
-bool menu(MonthlyBST &bst) {
+bool menu(MonthlyBST &bst)
+{
     int userChoice;
 
-    do {
+    do
+    {
         cout << "\nMenu\n";
         cout << "1. The average wind speed and average ambient air temperature for a specified month and year. (print on screen only)\n";
         cout << "2. Average wind speed and average ambient air temperature for each month of a specified year. (print on screen only)\n";
         cout << "3. Total solar radiation in kWh/m2 for each month of a specified year. (print on screen only)\n";
         cout << "4. Average wind speed(km/h), average ambient air temperature and total solar radiation in kWh/m2\n"
-         << "   for each month of a specified year. (write to a file called WindTempSolar.csv)\n";
+             << "   for each month of a specified year. (write to a file called WindTempSolar.csv)\n";
         cout << "5. Exit the program.\n";
 
 
         cout << "Please select an option from 1 to 5 (integer only): ";
         cin >> userChoice;
 
-        if(userChoice == 1){
+        if(userChoice == 1)
+        {
             option1(bst);
         }
-        else if (userChoice == 2) {
+        else if (userChoice == 2)
+        {
             option2(bst);
         }
-        else if (userChoice == 3) {
+        else if (userChoice == 3)
+        {
             option3(bst);
         }
-        else if (userChoice == 4) {
+        else if (userChoice == 4)
+        {
             option4(bst);
         }
-        else if (userChoice == 5) {
+        else if (userChoice == 5)
+        {
             cout << "\nExiting program...";
             return false;
         }
-        else {
+        else
+        {
             cout << "\nInvalid option... Please try again\n";
         }
     }
@@ -171,35 +185,50 @@ bool menu(MonthlyBST &bst) {
     return true;
 }
 
-string FullMonth(int month){
+string FullMonth(int month)
+{
     string monthName = "";
 
-    switch(month){
-        case 1: monthName += "January";
+    switch(month)
+    {
+    case 1:
+        monthName += "January";
         break;
-        case 2: monthName += "February ";
+    case 2:
+        monthName += "February ";
         break;
-        case 3: monthName += "March";
+    case 3:
+        monthName += "March";
         break;
-        case 4: monthName += "April";
+    case 4:
+        monthName += "April";
         break;
-        case 5: monthName += "May";
+    case 5:
+        monthName += "May";
         break;
-        case 6: monthName += "June";
+    case 6:
+        monthName += "June";
         break;
-        case 7: monthName += "July";
+    case 7:
+        monthName += "July";
         break;
-        case 8: monthName += "August";
+    case 8:
+        monthName += "August";
         break;
-        case 9: monthName += "September";
+    case 9:
+        monthName += "September";
         break;
-        case 10: monthName += "October";
+    case 10:
+        monthName += "October";
         break;
-        case 11: monthName += "November";
+    case 11:
+        monthName += "November";
         break;
-        case 12: monthName += "December";
+    case 12:
+        monthName += "December";
         break;
-        default: monthName += "NULL";
+    default:
+        monthName += "NULL";
 
     }
 
@@ -207,7 +236,8 @@ string FullMonth(int month){
 }
 
 //Asks users for input and carries out calculation for option 1 of menu
-bool option1(MonthlyBST &bst) {
+bool option1(MonthlyBST &bst)
+{
     int month, year;
 
     float averageWSpeed = 0;
@@ -216,7 +246,8 @@ bool option1(MonthlyBST &bst) {
 
     //WeatherData tmpWindlog;
 
-    if(!readMonthAndYear(month, year)) return false;
+    if(!readMonthAndYear(month, year))
+        return false;
 
     int key = getYearMonthKey(year, month);
 
@@ -242,19 +273,22 @@ bool option1(MonthlyBST &bst) {
     calcAverage(averageWSpeed, count);
     calcAverage(averageAmbAir, count);
     */
-    if (averageAmbAir > 0 && averageWSpeed > 0) {
+    if (averageAmbAir > 0 && averageWSpeed > 0)
+    {
         cout << FullMonth(month) << " " << year << ": " << averageWSpeed << " km/h, ";
         cout << averageAmbAir << " degrees C";
         return true;
     }
-    else {
+    else
+    {
         cout << FullMonth(month) << " " << year << ": No Data";
         return false;
     }
 
 }
 
-bool option2(MonthlyBST &bst) {
+bool option2(MonthlyBST &bst)
+{
     int year;
 
 
@@ -263,7 +297,8 @@ bool option2(MonthlyBST &bst) {
 
     //WeatherData tmpWindlog;
 
-    for (int m = 1; m < 13; m++) {
+    for (int m = 1; m < 13; m++)
+    {
 
         float averageWSpeed = 0;
         float averageAmbAir = 0;
@@ -293,11 +328,13 @@ bool option2(MonthlyBST &bst) {
         averageWSpeed = entryMonth.MonthlyAverageWindSpeed();
         averageAmbAir = entryMonth.MonthlyAverageAmbientTemp();
 
-        if (averageAmbAir > 0 && averageWSpeed > 0) {
+        if (averageAmbAir > 0 && averageWSpeed > 0)
+        {
             cout << FullMonth(m) << " " << year << ": " << averageWSpeed << " km/h, ";
             cout << averageAmbAir << " degrees C\n";
         }
-        else {
+        else
+        {
             cout << FullMonth(m) << " " << year << ": No Data\n";
         }
     }
@@ -306,14 +343,16 @@ bool option2(MonthlyBST &bst) {
 }
 
 
-bool option3(MonthlyBST &bst) {
+bool option3(MonthlyBST &bst)
+{
     int year;
 
     readYearChoice(year);
 
     //WeatherData tmpWindlog;
 
-    for (int m = 1; m < 13; m++) {
+    for (int m = 1; m < 13; m++)
+    {
 
         float totalSR = 0;
 
@@ -337,10 +376,12 @@ bool option3(MonthlyBST &bst) {
         totalSR = entryMonth.MonthlyTotalSolarRadiation();
 
 
-        if (totalSR != 0) {
+        if (totalSR != 0)
+        {
             cout << FullMonth(m) << " " << year << ": " << totalSR << " kWh/m^2\n";
         }
-        else {
+        else
+        {
             cout << FullMonth(m) << " " << year << ": No Data\n";
         }
     }
@@ -348,7 +389,8 @@ bool option3(MonthlyBST &bst) {
 
 }
 
-bool option4(MonthlyBST &bst) {
+bool option4(MonthlyBST &bst)
+{
     int year;
 
     int noDataCount = 0;
@@ -360,7 +402,8 @@ bool option4(MonthlyBST &bst) {
 
     ofile << year << '\n';
 
-    for (int m = 1; m < 13; m++) {
+    for (int m = 1; m < 13; m++)
+    {
 
         int count = 0;
         float averageWSpeed = 0;
@@ -400,16 +443,19 @@ bool option4(MonthlyBST &bst) {
 
 
 
-        if (averageAmbAir > 0 && averageWSpeed > 0 && totalSR > 0) {
+        if (averageAmbAir > 0 && averageWSpeed > 0 && totalSR > 0)
+        {
             ofile << FullMonth(m) << ", " << averageWSpeed << ", " << averageAmbAir << ", ";
             ofile << totalSR << "\n";
         }
-        else {
+        else
+        {
             noDataCount++;
         }
     }
 
-    if (noDataCount == 12) {
+    if (noDataCount == 12)
+    {
         ofile << "No Data\n";
     }
 
