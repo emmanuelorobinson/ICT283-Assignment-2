@@ -11,6 +11,7 @@ typedef BST<Monthly> MonthlyBST;
 
 using namespace std;
 
+
 void printMonthly(Monthly &m);
 bool readFile(MonthlyBST &bst);
 int getYearMonthKey(int year, int month);
@@ -58,6 +59,7 @@ bool readFile(MonthlyBST &bst)
 
     while (getline(infile, line))
     {
+
         dataFileName = "data/" + line;
 
         dinfile.open(dataFileName.c_str());
@@ -242,9 +244,6 @@ bool option1(MonthlyBST &bst)
 
     float averageWSpeed = 0;
     float averageAmbAir = 0;
-    //int count = 0;
-
-    //WeatherData tmpWindlog;
 
     if(!readMonthAndYear(month, year))
         return false;
@@ -258,21 +257,6 @@ bool option1(MonthlyBST &bst)
     averageWSpeed = entryMonth.MonthlyAverageWindSpeed();
     averageAmbAir = entryMonth.MonthlyAverageAmbientTemp();
 
-    /* for(int i = 0; i < windlog.GetSize(); i++) {
-
-        windlog.GetAt(i, tmpWindlog);
-
-        if (month == tmpWindlog.GetDate().GetMonth() && year == tmpWindlog.GetDate().GetYear()) {
-            averageAmbAir += tmpWindlog.GetAmbientAir();
-            averageWSpeed += (tmpWindlog.GetWindSpeed() * 3.6); //Conversion from m/s to km/h requires multiplication by 3.6
-            count++;
-
-        }
-    }
-
-    calcAverage(averageWSpeed, count);
-    calcAverage(averageAmbAir, count);
-    */
     if (averageAmbAir > 0 && averageWSpeed > 0)
     {
         cout << FullMonth(month) << " " << year << ": " << averageWSpeed << " km/h, ";
@@ -302,28 +286,11 @@ bool option2(MonthlyBST &bst)
 
         float averageWSpeed = 0;
         float averageAmbAir = 0;
-        //int count = 0;
-
-        /* for(int i = 0; i < windlog.GetSize(); i++) {
-
-            windlog.GetAt(i, tmpWindlog);
-
-            if (m == tmpWindlog.GetDate().GetMonth() && year == tmpWindlog.GetDate().GetYear()) {
-
-                averageAmbAir += tmpWindlog.GetAmbientAir();
-                averageWSpeed += (tmpWindlog.GetWindSpeed() * 3.6); //Conversion from m/s to km/h requires multiplication by 3.6
-                count++;
-
-            }
-        } */
 
         int key = getYearMonthKey(year, m);
         Monthly entryMonth = key;
 
         bst.Search(entryMonth);
-
-        /* calcAverage(averageAmbAir, count);
-        calcAverage(averageWSpeed, count); */
 
         averageWSpeed = entryMonth.MonthlyAverageWindSpeed();
         averageAmbAir = entryMonth.MonthlyAverageAmbientTemp();
@@ -349,24 +316,10 @@ bool option3(MonthlyBST &bst)
 
     readYearChoice(year);
 
-    //WeatherData tmpWindlog;
-
     for (int m = 1; m < 13; m++)
     {
 
         float totalSR = 0;
-
-        /* for(int i = 0; i < windlog.GetSize(); i++) {
-
-            windlog.GetAt(i, tmpWindlog);
-
-            if (m == tmpWindlog.GetDate().GetMonth() && year == tmpWindlog.GetDate().GetYear() && tmpWindlog.GetSolarRadiation() >= 100) {
-
-                totalSR += tmpWindlog.GetSolarRadiation();
-
-            }
-        }
-        totalSR = totalSR / 6000; */
 
         int key = getYearMonthKey(year, m);
         Monthly entryMonth = key;
@@ -404,27 +357,9 @@ bool option4(MonthlyBST &bst)
 
     for (int m = 1; m < 13; m++)
     {
-
-        int count = 0;
         float averageWSpeed = 0;
         float averageAmbAir = 0;
         float totalSR = 0;
-
-        /* for(int i = 0; i < windlog.GetSize(); i++) {
-
-            windlog.GetAt(i, tmpWindlog);
-
-            if (m == tmpWindlog.GetDate().GetMonth() && year == tmpWindlog.GetDate().GetYear()) {
-
-                averageAmbAir += tmpWindlog.GetAmbientAir();
-                averageWSpeed += (tmpWindlog.GetWindSpeed() * 3.6); //Conversion from m/s to km/h requires multiplication by 3.6
-                if (tmpWindlog.GetSolarRadiation() >= 100) {
-                    totalSR += tmpWindlog.GetSolarRadiation();
-                };
-                count++;
-
-            }
-        } */
 
         int key = getYearMonthKey(year, m);
         Monthly entryMonth = key;
@@ -434,14 +369,6 @@ bool option4(MonthlyBST &bst)
         averageWSpeed = entryMonth.MonthlyAverageWindSpeed();
         averageAmbAir = entryMonth.MonthlyAverageAmbientTemp();
         totalSR = entryMonth.MonthlyTotalSolarRadiationAboveHundred();
-
-
-        /* calcAverage(averageWSpeed, count);
-        calcAverage(averageAmbAir, count);
-        totalSR = totalSR / 6000; */
-
-
-
 
         if (averageAmbAir > 0 && averageWSpeed > 0 && totalSR > 0)
         {

@@ -32,6 +32,16 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="BST.h" />
+		<Unit filename="Date.cpp" />
+		<Unit filename="Date.h" />
+		<Unit filename="Monthly.cpp" />
+		<Unit filename="Monthly.h" />
+		<Unit filename="TestBST.cpp" />
+		<Unit filename="Time.cpp" />
+		<Unit filename="Time.h" />
+		<Unit filename="WeatherData.cpp" />
+		<Unit filename="WeatherData.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
