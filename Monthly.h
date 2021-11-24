@@ -31,6 +31,8 @@ public:
 
     float MonthlyTotalSolarRadiation();
 
+    float MonthlyTotalSolarRadiationAboveHundred();
+
     float MonthlyAverageAmbientTemp();
 
     bool operator==(Monthly &M);

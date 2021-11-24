@@ -93,7 +93,27 @@ float Monthly::MonthlyTotalSolarRadiation() {
     }
 
     //return the total solar radiation
-    return totalSolarRadiation;
+    return totalSolarRadiation/6000;
+}
+
+float Monthly::MonthlyTotalSolarRadiationAboveHundred() {
+    //Calculates the total solar radiation for the month
+    //returns the total solar radiation
+
+    float totalSolarRadiation = 0;
+
+    //iterate through the map
+    for(std::map<int, WeatherData>::iterator it = dataMap.begin(); it != dataMap.end(); ++it){
+        //get the solar radiation
+        float solarRadiation = it->second.GetSolarRadiation();
+        //add the solar radiation to the total
+        if(solarRadiation > 100){
+            totalSolarRadiation += solarRadiation;
+        }
+    }
+
+    //return the total solar radiation
+    return totalSolarRadiation/6000;
 }
 
 float Monthly::MonthlyAverageAmbientTemp(){
