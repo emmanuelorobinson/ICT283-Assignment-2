@@ -35,6 +35,10 @@ public:
 
     float MonthlyAverageAmbientTemp();
 
+    float GetHighestSolarRadiation(int dhmkey);
+
+    void GetHighestSolarRadiationTimes(int dhmkey, float highestSR);
+
     bool operator==(Monthly &M);
     bool operator!=(Monthly &M);
     bool operator<(Monthly &M);

@@ -15,6 +15,7 @@ using namespace std;
 void printMonthly(Monthly &m);
 bool readFile(MonthlyBST &bst);
 int getYearMonthKey(int year, int month);
+int getDayHourMinuteKey(int day, int hour, int minute);
 bool readMonthAndYear(int &month, int &year);
 bool readYearChoice(int &year);
 bool menu(MonthlyBST &bst);
@@ -22,6 +23,7 @@ bool option1(MonthlyBST &bst);
 bool option2(MonthlyBST &bst);
 bool option3(MonthlyBST &bst);
 bool option4(MonthlyBST &bst);
+bool option5(MonthlyBST &bst);
 string FullMonth(int month);
 
 int main()
@@ -36,6 +38,11 @@ int main()
 int getYearMonthKey(int year, int month)
 {
     return (year*100) + month;
+}
+
+int getDayHourMinuteKey(int day, int hour, int minute)
+{
+    return (day*10000) + (hour*100) + minute;
 }
 
 bool readFile(MonthlyBST &bst)
@@ -150,7 +157,8 @@ bool menu(MonthlyBST &bst)
         cout << "3. Total solar radiation in kWh/m2 for each month of a specified year. (print on screen only)\n";
         cout << "4. Average wind speed(km/h), average ambient air temperature and total solar radiation in kWh/m2\n"
              << "   for each month of a specified year. (write to a file called WindTempSolar.csv)\n";
-        cout << "5. Exit the program.\n";
+        cout << "5. Given a Date in the form d/m/yyyy, show the times for the highest solar radiation for the Date\n";
+        cout << "6. Exit the program.\n";
 
 
         cout << "Please select an option from 1 to 5 (integer only): ";
@@ -173,6 +181,10 @@ bool menu(MonthlyBST &bst)
             option4(bst);
         }
         else if (userChoice == 5)
+        {
+            option5(bst);
+        }
+        else if (userChoice == 6)
         {
             cout << "\nExiting program...";
             return false;
@@ -389,5 +401,69 @@ bool option4(MonthlyBST &bst)
     ofile.close();
     cout << "Data read out successfully\n";
     return true;
+
+}
+
+bool option5(MonthlyBST &bst)
+{
+    //Given a Date in the form d/m/yyyy, show the times for the highest solar radiation for the Date
+    int day, month, year;
+
+    cout << "Enter day: ";
+    cin >> day;
+    cout << "Enter month: ";
+    cin >> month;
+    cout << "Enter year: ";
+    cin >> year;
+
+    cout << "Date: " << day << "/" << month << "/" << year << "\n";
+
+    int key = getYearMonthKey(year, month);
+    
+    Monthly entryMonth = key;
+
+    bst.Search(entryMonth);
+
+    //for each hour and minute in the day calculate the highest solar radiation
+
+    float highestSR = 0;
+
+    for(int h = 0; h < 24; h++)
+    {
+        for(int m = 0; m < 60; m++)
+        {
+
+            int dhmkey = getDayHourMinuteKey(day, h, m);
+
+            if (highestSR < entryMonth.GetHighestSolarRadiation(dhmkey))
+            {
+                highestSR = entryMonth.GetHighestSolarRadiation(dhmkey);
+            }
+
+
+        }
+    }
+
+    if (highestSR > 0)
+    {
+        cout << "The highest solar radiation was " << highestSR << " kWh/m^2\n" << endl;// h << ":" << m << "\n";
+    }
+
+    //get times with highest solar radiation
+    cout << "Time:" << endl;
+
+    for(int h = 0; h < 24; h++)
+    {
+        for(int m = 0; m < 60; m++)
+        {
+            int dhmkey = getDayHourMinuteKey(day, h, m);
+
+            entryMonth.GetHighestSolarRadiationTimes(dhmkey, highestSR);
+        }
+    }
+   // entryMonth.GetHighestSolarRadiationTimes(dhmkey, highestSR);
+
+    return true;
+
 
 }

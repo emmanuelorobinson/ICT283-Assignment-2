@@ -137,6 +137,74 @@ float Monthly::MonthlyAverageAmbientTemp(){
     return totalAmbientTemp / totalAmbientTempCount;
 }
 
+float Monthly::GetHighestSolarRadiation(int dhmkey){
+    //Calculates the highest solar radiation for all the hours and minutes in the day part of the dhmkey
+    //returns the highest solar radiation
+    //dhmkey (day*100) + (hour*100) + minute
+    float highestSolarRadiation = 0;
+
+    //iterate through the map
+    for(std::map<int, WeatherData>::iterator it = dataMap.begin(); it != dataMap.end(); ++it){
+        //get the solar radiation
+        float solarRadiation = it->second.GetSolarRadiation();
+        //get the key
+        int key = it->first;
+        //get the day
+        int day = key / 10000;
+        //get the hour
+        int hour = (key % 10000) / 100;
+        //get the minute
+        int minute = key % 100;
+        //if the day, hour and minute are the same as the dhmkey
+        if(day == dhmkey / 10000 && hour == (dhmkey % 10000) / 100 && minute == dhmkey % 100){
+            //if the solar radiation is higher than the highest solar radiation
+            if(solarRadiation > highestSolarRadiation){
+                //set the highest solar radiation to the solar radiation
+                highestSolarRadiation = solarRadiation;
+            }
+        }
+    }
+
+    return highestSolarRadiation;
+}
+
+void Monthly::GetHighestSolarRadiationTimes(int dhmkey, float highestSR){
+    //returns the times of a day where solar radiation is the same as highestSR
+    //dhmkey (day*100) + (hour*100) + minute
+    //highestSR is the highest solar radiation
+    //times is a vector of times
+    //times is printed to the console
+
+    std::vector<int> times;
+
+    //iterate through the map
+    for(std::map<int, WeatherData>::iterator it = dataMap.begin(); it != dataMap.end(); ++it){
+        //get the solar radiation
+        float solarRadiation = it->second.GetSolarRadiation();
+        //get the key
+        int key = it->first;
+        //get the day
+        int day = key / 10000;
+        //get the hour
+        int hour = (key % 10000) / 100;
+        //get the minute
+        int minute = key % 100;
+        //if the day, hour and minute are the same as the dhmkey
+        if(day == dhmkey / 10000 && hour == (dhmkey % 10000) / 100 && minute == dhmkey % 100){
+            //if the solar radiation is the same as the highest solar radiation
+            if(solarRadiation == highestSR){
+                //add the key to the vector
+                cout << "Time: " << key << endl;
+            }
+        }
+    }
+/* 
+    //print the vector to the console
+    for(int i = 0; i < times.size(); i++){
+        std::cout << times[i] << std::endl;
+    } */
+}
+
 bool Monthly::operator!=(Monthly &M) {
     return ymkey != M.GetYMK();
 }
