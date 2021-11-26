@@ -161,7 +161,7 @@ bool menu(MonthlyBST &bst)
         cout << "6. Exit the program.\n";
 
 
-        cout << "Please select an option from 1 to 5 (integer only): ";
+        cout << "Please select an option from 1 to 6 (integer only): ";
         cin >> userChoice;
 
         if(userChoice == 1)
@@ -419,7 +419,7 @@ bool option5(MonthlyBST &bst)
     cout << "Date: " << day << "/" << month << "/" << year << "\n";
 
     int key = getYearMonthKey(year, month);
-    
+
     Monthly entryMonth = key;
 
     bst.Search(entryMonth);

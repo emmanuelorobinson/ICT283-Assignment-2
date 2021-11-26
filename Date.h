@@ -11,7 +11,7 @@ using namespace std;
  * @author Emmanuel Oghenetega Ejakpomewhe
  *Student ID: 33961412
  * @version 17.12
- * @date 23/10/2021
+ * @date 28/11/2021
  * @bug To my knowledge, my program contains no bugs
  */
 
@@ -120,15 +120,63 @@ class Date
 
         string Datefunc();
 
+        /** \brief overloaded operator for "=="
+         *
+         * \param D - The date object is compared to check if one object is equals to the other
+         * \param
+         * \return
+         *
+         */
+
         bool operator==(const Date& D) const;
+
+        /** \brief overloaded operator for "!="
+         *
+         * \param D - The date object is compared to check if one object is not equals to the other
+         * \param
+         * \return
+         *
+         */
 
         bool operator!=(const Date& D) const;
 
+        /** \brief overloaded operator for "<"
+         *
+         * \param D - The date object is compared to check if one object is less than the other
+         * \param
+         * \return
+         *
+         */
+
         bool operator<(const Date& D) const;
-        
+
+        /** \brief overloaded operator for ">"
+         *
+         * \param D - The date object is compared to check if one object is greater than the other
+         * \param
+         * \return
+         *
+         */
+
         bool operator>(const Date& D) const;
-        
+
+        /** \brief overloaded operator for "<="
+         *
+         * \param D - The date object is compared to check if one object is less than or equals to the other
+         * \param
+         * \return
+         *
+         */
+
         bool operator<=(const Date& D) const;
+
+        /** \brief overloaded operator for ">="
+         *
+         * \param D - The date object that is compared to check if one object is greater than or equals to the other
+         * \param
+         * \return
+         *
+         */
 
         bool operator>=(const Date& D) const;
 
