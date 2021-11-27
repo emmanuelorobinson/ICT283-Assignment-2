@@ -16,10 +16,17 @@ void setMinuteTest3();
 void testTimefunc1();
 void testTimefunc2();
 void testTimefunc3();
+void testOverloadedOperator1Time();
+void testOverloadedOperator2Time();
+void testOverloadedOperator3Time();
+void testOverloadedOperator4Time();
+void testOverloadedOperator5Time();
+void testOverloadedOperator6Time();
 
 
 
-int main2() {
+int main3()
+{
 
     cout << "Testing the time class\n";
 
@@ -34,36 +41,49 @@ int main2() {
     testTimefunc1();
     testTimefunc2();
     testTimefunc3();
+    testOverloadedOperator1Time();
+    testOverloadedOperator2Time();
+    testOverloadedOperator3Time();
+    testOverloadedOperator4Time();
+    testOverloadedOperator5Time();
+    testOverloadedOperator6Time();
 
 
     return 0;
 }
 
-void timeConstructorTest(){
+void timeConstructorTest()
+{
     Time T;
 
-    if (typeid(T) == typeid(Time) && T.GetHour() == 0 && T.GetMinute() == 0 ) {
+    if (typeid(T) == typeid(Time) && T.GetHour() == 0 && T.GetMinute() == 0 )
+    {
         cout << "1, Default constructor test: " << T.Timefunc() << " ->Successful\n";
     }
-    else{
+    else
+    {
         cout << "1, Default constructor test: -> Unsuccessful" << endl;
     }
 
 }
 
-void timeNonDefaultConstructorTest(){
+void timeNonDefaultConstructorTest()
+{
     Time T(9, 12);
 
-    if (typeid(T) == typeid(Time) && T.GetHour() == 9 && T.GetMinute() == 12 ) {
+    if (typeid(T) == typeid(Time) && T.GetHour() == 9 && T.GetMinute() == 12 )
+    {
         cout << "2, Non default constructor test: " << T.Timefunc() << " ->Successful\n";
     }
-    else{
+    else
+    {
         cout << "2, Non default constructor test: -> Unsuccessful" << endl;
     }
 
 }
 
-void setHourTest1(){
+void setHourTest1()
+{
 
     Time T;
 
@@ -71,14 +91,18 @@ void setHourTest1(){
 
     T.SetHour(9);
 
-    if(T.GetHour() == 9){
+    if(T.GetHour() == 9)
+    {
         cout << "Time = " << T.GetHour() << " ->Successful" << '\n';
-    } else {
+    }
+    else
+    {
         cout << "Time = " << T.GetHour() << " ->Unsuccessful" << '\n';
     }
 }
 
-void setHourTest2(){
+void setHourTest2()
+{
 
     Time T;
 
@@ -86,14 +110,18 @@ void setHourTest2(){
 
     T.SetHour(30);
 
-    if(T.GetHour() == 0){
+    if(T.GetHour() == 0)
+    {
         cout << "Time = " << T.GetHour() << " ->Successful" << '\n';
-    } else {
+    }
+    else
+    {
         cout << "Time = " << T.GetHour() << " ->Unsuccessful" << '\n';
     }
 }
 
-void setHourTest3(){
+void setHourTest3()
+{
 
     Time T;
 
@@ -101,14 +129,18 @@ void setHourTest3(){
 
     T.SetHour(-1);
 
-    if(T.GetHour() == 0){
+    if(T.GetHour() == 0)
+    {
         cout << "Time = " << T.GetHour() << " ->Successful" << '\n';
-    } else {
+    }
+    else
+    {
         cout << "Time = " << T.GetHour() << " ->Unsuccessful" << '\n';
     }
 }
 
-void setMinuteTest1(){
+void setMinuteTest1()
+{
 
     Time T;
 
@@ -116,14 +148,18 @@ void setMinuteTest1(){
 
     T.SetMinute(30);
 
-    if(T.GetMinute() == 30){
+    if(T.GetMinute() == 30)
+    {
         cout << "Time = " << T.GetMinute() << " ->Successful" << '\n';
-    } else {
+    }
+    else
+    {
         cout << "Time = " << T.GetMinute() << " ->Unsuccessful" << '\n';
     }
 }
 
-void setMinuteTest2(){
+void setMinuteTest2()
+{
 
     Time T;
 
@@ -131,14 +167,18 @@ void setMinuteTest2(){
 
     T.SetMinute(70);
 
-    if(T.GetMinute() == 0){
+    if(T.GetMinute() == 0)
+    {
         cout << "Time = " << T.GetMinute() << " ->Successful" << '\n';
-    } else {
+    }
+    else
+    {
         cout << "Time = " << T.GetMinute() << " ->Unsuccessful" << '\n';
     }
 }
 
-void setMinuteTest3(){
+void setMinuteTest3()
+{
 
     Time T;
 
@@ -146,15 +186,19 @@ void setMinuteTest3(){
 
     T.SetMinute(-1);
 
-    if(T.GetMinute() == 0){
+    if(T.GetMinute() == 0)
+    {
         cout << "Time = " << T.GetMinute() << " ->Successful" << '\n';
-    } else {
+    }
+    else
+    {
         cout << "Time = " << T.GetMinute() << " ->Unsuccessful" << '\n';
     }
 }
 
 
-void testTimefunc1(){
+void testTimefunc1()
+{
     Time T;
 
     cout << "9, Test Timefunc with hour 9, minute 30: ";
@@ -162,14 +206,18 @@ void testTimefunc1(){
     T.SetHour(9);
     T.SetMinute(30);
 
-    if(T.Timefunc() == "9:30"){
+    if(T.Timefunc() == "9:30")
+    {
         cout << "Year = " << T.Timefunc() << " ->Successful" << '\n';
-    } else {
+    }
+    else
+    {
         cout << "Year = " << T.Timefunc() << " ->Unsuccessful" << '\n';
     }
 }
 
-void testTimefunc2(){
+void testTimefunc2()
+{
     Time T;
 
     cout << "10, Test Timefunc with out of bounds hour 25, minute 65: ";
@@ -177,14 +225,18 @@ void testTimefunc2(){
     T.SetHour(25);
     T.SetMinute(65);
 
-    if(T.Timefunc() == "0:0"){
+    if(T.Timefunc() == "0:0")
+    {
         cout << "Year = " << T.Timefunc() << " ->Successful" << '\n';
-    } else {
+    }
+    else
+    {
         cout << "Year = " << T.Timefunc() << " ->Unsuccessful" << '\n';
     }
 }
 
-void testTimefunc3(){
+void testTimefunc3()
+{
     Time T;
 
     cout << "11, Test Timefunc with out of bounds hour -1, minute -1: ";
@@ -192,11 +244,115 @@ void testTimefunc3(){
     T.SetHour(-1);
     T.SetMinute(-1);
 
-    if(T.Timefunc() == "0:0"){
+    if(T.Timefunc() == "0:0")
+    {
         cout << "Year = " << T.Timefunc() << " ->Successful" << '\n';
-    } else {
+    }
+    else
+    {
         cout << "Year = " << T.Timefunc() << " ->Unsuccessful" << '\n';
     }
 }
 
+void testOverloadedOperator1Time()
+{
+    Time T1 = Time(9, 30);
+    Time T2 = Time(9, 30);
+
+    cout << "12, Test overloaded operator == with T1(9, 30) and T2(9, 30): ";
+
+    if(T1 == T2)
+    {
+        cout << "T1 = " << T1.Timefunc() << " T2 = " << T2.Timefunc() << " ->Successful" << '\n';
+    }
+    else
+    {
+        cout << "T1 = " << T1.Timefunc() << " T2 = " << T2.Timefunc() << " ->Unsuccessful" << '\n';
+    }
+}
+
+void testOverloadedOperator2Time()
+{
+    Time T1 = Time(9, 30);
+    Time T2 = Time(9, 31);
+
+    cout << "13, Test overloaded operator != with T1(9, 30) and T2(9, 31): ";
+
+    if(T1 != T2)
+    {
+        cout << "T1 = " << T1.Timefunc() << " T2 = " << T2.Timefunc() << " ->Successful" << '\n';
+    }
+    else
+    {
+        cout << "T1 = " << T1.Timefunc() << " T2 = " << T2.Timefunc() << " ->Unsuccessful" << '\n';
+    }
+}
+
+void testOverloadedOperator3Time()
+{
+    Time T1 = Time(9, 10);
+    Time T2 = Time(9, 30);
+
+    cout << "14, Test overloaded operator < with T1(9, 10) and T2(9, 30): ";
+
+    if(T1 < T2)
+    {
+        cout << "T1 = " << T1.Timefunc() << " T2 = " << T2.Timefunc() << " ->Successful" << '\n';
+    }
+    else
+    {
+        cout << "T1 = " << T1.Timefunc() << " T2 = " << T2.Timefunc() << " ->Unsuccessful" << '\n';
+    }
+}
+
+void testOverloadedOperator4Time()
+{
+    Time T1 = Time(10, 30);
+    Time T2 = Time(9, 20);
+
+    cout << "15, Test overloaded operator > with T1(10, 30) and T2(9, 20): ";
+
+    if(T1 > T2)
+    {
+        cout << "T1 = " << T1.Timefunc() << " T2 = " << T2.Timefunc() << " ->Successful" << '\n';
+    }
+    else
+    {
+        cout << "T1 = " << T1.Timefunc() << " T2 = " << T2.Timefunc() << " ->Unsuccessful" << '\n';
+    }
+}
+
+void testOverloadedOperator5Time()
+{
+    Time T1 = Time(1, 30);
+    Time T2 = Time(9, 20);
+
+    cout << "16, Test overloaded operator <= with T1(1, 30) and T2(9, 20): ";
+
+    if(T1 <= T2)
+    {
+        cout << "T1 = " << T1.Timefunc() << " T2 = " << T2.Timefunc() << " ->Successful" << '\n';
+    }
+    else
+    {
+        cout << "T1 = " << T1.Timefunc() << " T2 = " << T2.Timefunc() << " ->Unsuccessful" << '\n';
+    }
+}
+
+void testOverloadedOperator6Time()
+{
+    Time T1 = Time(10, 30);
+    Time T2 = Time(9, 20);
+
+    cout << "17, Test overloaded operator >= with T1(10, 30) and T2(9, 20): ";
+
+    if(T1 >= T2)
+    {
+        cout << "T1 = " << T1.Timefunc() << " T2 = " << T2.Timefunc() << " ->Successful" << '\n';
+    }
+    else
+    {
+        cout << "T1 = " << T1.Timefunc() << " T2 = " << T2.Timefunc() << " ->Unsuccessful" << '\n';
+    }
+}
 

@@ -241,27 +241,13 @@ bool Date::operator <=(const Date &D) const
     {
         return true;
     }
-    else if(year == D.year)
+    else if(year == D.year && month <= D.month)
     {
-        if(month < D.month)
-        {
-            return true;
-        }
-        else if(month == D.month)
-        {
-            if(day < D.day)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        else
-        {
-            return false;
-        }
+        return true;
+    }
+    else if(year == D.year && month == D.month && day <= D.day)
+    {
+        return true;
     }
     else
     {
@@ -275,27 +261,13 @@ bool Date::operator >=(const Date &D) const
     {
         return true;
     }
-    else if(year == D.year)
+    else if(year == D.year && month >= D.month)
     {
-        if(month > D.month)
-        {
-            return true;
-        }
-        else if(month == D.month)
-        {
-            if(day > D.day)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        else
-        {
-            return false;
-        }
+        return true;
+    }
+    else if(year == D.year && month == D.month && day >= D.day)
+    {
+        return true;
     }
     else
     {

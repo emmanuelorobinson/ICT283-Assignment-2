@@ -55,3 +55,81 @@
 	<cmath>
 	"Monthly.h"
 
+1638012238 source:c:\users\dell\downloads\documents\tsd2021\ict283 - data structures and abstractions\assignment2\ict283_asign2_emmanuel_o_ejakpomewhe_33961412\assignment 2\date.cpp
+	"Date.h"
+	<iostream>
+	<string.h>
+	<string>
+	<cstdlib>
+	<bits/stdc++.h>
+
+1637946667 c:\users\dell\downloads\documents\tsd2021\ict283 - data structures and abstractions\assignment2\ict283_asign2_emmanuel_o_ejakpomewhe_33961412\assignment 2\date.h
+	<iostream>
+	<string>
+
+1638012312 source:c:\users\dell\downloads\documents\tsd2021\ict283 - data structures and abstractions\assignment2\ict283_asign2_emmanuel_o_ejakpomewhe_33961412\assignment 2\datetest.cpp
+	"Date.h"
+	<iostream>
+	<typeinfo>
+
+1638011563 source:c:\users\dell\downloads\documents\tsd2021\ict283 - data structures and abstractions\assignment2\ict283_asign2_emmanuel_o_ejakpomewhe_33961412\assignment 2\main.cpp
+	<iostream>
+	<fstream>
+	"BST.h"
+	"Date.h"
+	"string"
+	<cmath>
+	"Monthly.h"
+
+1637944949 c:\users\dell\downloads\documents\tsd2021\ict283 - data structures and abstractions\assignment2\ict283_asign2_emmanuel_o_ejakpomewhe_33961412\assignment 2\bst.h
+	<iostream>
+
+1638010012 c:\users\dell\downloads\documents\tsd2021\ict283 - data structures and abstractions\assignment2\ict283_asign2_emmanuel_o_ejakpomewhe_33961412\assignment 2\monthly.h
+	<map>
+	"WeatherData.h"
+
+1637950262 c:\users\dell\downloads\documents\tsd2021\ict283 - data structures and abstractions\assignment2\ict283_asign2_emmanuel_o_ejakpomewhe_33961412\assignment 2\weatherdata.h
+	"Date.h"
+	"Time.h"
+
+1637945855 c:\users\dell\downloads\documents\tsd2021\ict283 - data structures and abstractions\assignment2\ict283_asign2_emmanuel_o_ejakpomewhe_33961412\assignment 2\time.h
+	<iostream>
+	<string>
+
+1638007987 source:c:\users\dell\downloads\documents\tsd2021\ict283 - data structures and abstractions\assignment2\ict283_asign2_emmanuel_o_ejakpomewhe_33961412\assignment 2\monthly.cpp
+	"Monthly.h"
+
+1638012957 source:c:\users\dell\downloads\documents\tsd2021\ict283 - data structures and abstractions\assignment2\ict283_asign2_emmanuel_o_ejakpomewhe_33961412\assignment 2\monthlytest.cpp
+	"Monthly.h"
+	<iostream>
+	<typeinfo>
+	"WeatherData.h"
+
+1638013295 source:c:\users\dell\downloads\documents\tsd2021\ict283 - data structures and abstractions\assignment2\ict283_asign2_emmanuel_o_ejakpomewhe_33961412\assignment 2\testbst.cpp
+	"BST.h"
+	"Date.h"
+	<iostream>
+	<typeinfo>
+
+1637342024 source:c:\users\dell\downloads\documents\tsd2021\ict283 - data structures and abstractions\assignment2\ict283_asign2_emmanuel_o_ejakpomewhe_33961412\assignment 2\time.cpp
+	"Time.h"
+	<iostream>
+	<string>
+	<cstdlib>
+	<bits/stdc++.h>
+
+1637348560 source:c:\users\dell\downloads\documents\tsd2021\ict283 - data structures and abstractions\assignment2\ict283_asign2_emmanuel_o_ejakpomewhe_33961412\assignment 2\weatherdata.cpp
+	"WeatherData.h"
+
+1638012935 source:c:\users\dell\downloads\documents\tsd2021\ict283 - data structures and abstractions\assignment2\ict283_asign2_emmanuel_o_ejakpomewhe_33961412\assignment 2\weathertest.cpp
+	"WeatherData.h"
+	"Date.h"
+	"Time.h"
+	<iostream>
+	<typeinfo>
+
+1638012301 source:c:\users\dell\downloads\documents\tsd2021\ict283 - data structures and abstractions\assignment2\ict283_asign2_emmanuel_o_ejakpomewhe_33961412\assignment 2\timetest.cpp
+	"Time.h"
+	<iostream>
+	<typeinfo>
+

@@ -26,13 +26,13 @@ bool option4(MonthlyBST &bst);
 bool option5(MonthlyBST &bst);
 string FullMonth(int month);
 
-int main()
+int main1()
 {
     MonthlyBST bst;
     readFile(bst);
     menu(bst);
 
-    return 1;
+    return 0;
 }
 
 int getYearMonthKey(int year, int month)
@@ -441,7 +441,7 @@ bool option5(MonthlyBST &bst)
 
     if (highestSR > 0)
     {
-        cout << "The highest solar radiation was " << highestSR << " kWh/m^2\n" << endl;// h << ":" << m << "\n";
+        cout << "The highest solar radiation was " << highestSR << " W/m^2\n" << endl;// h << ":" << m << "\n";
     }
 
     //get times with highest solar radiation

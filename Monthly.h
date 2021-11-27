@@ -1,6 +1,5 @@
 #ifndef MONTHLY_H
 #define MONTHLY_H
-#include <vector>
 #include <map>
 #include "WeatherData.h"
 
@@ -67,7 +66,14 @@ public:
 
     void AddWeatherData(int dhmkey, WeatherData wd);
 
-//    WeatherData GetWeatherData(int key);
+    /** \brief Used to get the weather data object from the map
+     *
+     * \param dhmkey - used to set key in dataMap
+     * \return
+     *
+     */
+
+    WeatherData GetWeatherData(int dhmkey);
 
     /** \brief Used to calculate the monthly average wind speed in dataMap
      *

@@ -46,14 +46,14 @@ void Monthly::AddWeatherData(int dhmkey, WeatherData wd)
 
 }
 
-/* WeatherData Monthly::GetWeatherData(int key)
+WeatherData Monthly::GetWeatherData(int dmmkey)
 {
     //Gets the weather data object from the map
     //key is the day, hour and minute
     //if the key does not exist, an error message is displayed
     //if the key does exist, the weather data object is returned
 
-    if(dataMap.find(key) == dataMap.end())
+    if(dataMap.find(dmmkey) == dataMap.end())
     {
         //key does not exist
         std::cout << "Error: Key does not exist" << std::endl;
@@ -62,9 +62,9 @@ void Monthly::AddWeatherData(int dhmkey, WeatherData wd)
     {
         //key exists
         //return the weather data object
-        return dataMap.find(key)->second;
+        return dataMap.find(dmmkey)->second;
     }
-} */
+}
 
 float Monthly:: MonthlyAverageWindSpeed()
 {

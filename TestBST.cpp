@@ -34,7 +34,7 @@ void bstTypeTest();
 void bstInsertTest4();
 
 
-int main1()
+int main()
 {
 
     cout << "Testing BST class" << endl;
@@ -58,7 +58,7 @@ int main1()
     bstPostOrderTest2();
     bstPostOrderTest3();
     bstInsertTest4();
-    bstMaxIntCapacitytest();
+    //bstMaxIntCapacitytest();
     bstMaxFloatCapacitytest();
     bstMaxStringCapacitytest();
     bstTypeTest();
@@ -69,7 +69,7 @@ int main1()
 
 void bstConstructorTest()
 {
-    cout << "1. Testing BST constructor" << endl;
+    cout << "1. Testing BST constructor: ";
     try
     {
         BST<int> bst1;
@@ -90,7 +90,7 @@ void bstConstructorTest()
 
 void bstCopyConstructorTest()
 {
-    cout << "2. Testing BST copy constructor: " << endl;
+    cout << "2. Testing BST copy constructor: ";
     try
     {
         BST<int> bst1;
@@ -122,7 +122,7 @@ void bstCopyConstructorTest()
 
 void operatorTest()
 {
-    cout << "3. Testing BST operator" << endl;
+    cout << "3. Testing BST operator: ";
     try
     {
         BST<int> bst1;
@@ -155,7 +155,7 @@ void operatorTest()
 
 void bstDestructorTest()
 {
-    cout << "4. Testing BST destructor" << endl;
+    cout << "4. Testing BST destructor: ";
     try
     {
         BST<int> bst1;
@@ -187,7 +187,7 @@ void bstInsertTest1()
         bst.Insert(num);
         bst.Insert(num2);
 
-        cout << "5. BST insert with input 5, 6: " << endl;
+        cout << "5. BST insert with input 5, 6: ";
 
         if(bst.Search(num) == true && bst.Search(num2) == true)
         {
@@ -245,7 +245,7 @@ void bstInsertTest3()
         bst.Insert(num);
         bst.Insert(num2);
 
-        cout << "7. BST insert with input -5, -6: " << endl;
+        cout << "7. BST insert with input -5, -6: ";
 
         if(bst.Search(num) == true && bst.Search(num2) == true)
         {
@@ -274,7 +274,7 @@ void bstSearchTest1()
         bst.Insert(num);
         bst.Insert(num2);
 
-        cout << "8. BST search with input 5, 6: " << endl;
+        cout << "8. BST search with input 5, 6: ";
 
         if(bst.Search(num) == true && bst.Search(num2) == true)
         {
@@ -332,11 +332,11 @@ void bstSearchTest3()
         bst.Insert(num);
         bst.Insert(num2);
 
-        cout << "10. BST search with input -5, -6: " << endl;
+        cout << "10. BST search with input -5, -6: ";
 
         if(bst.Search(num) == true && bst.Search(num2) == true)
         {
-            cout << " -> BST search passed";
+            cout << " -> BST search passed" << endl;
         }
         else
         {
@@ -366,7 +366,6 @@ void bstInOrderTest1()
         cout << "11. BST inOrder with input 5, 10, 6: ";
 
         bst.InOrder(printInt);
-        cout << endl;
         cout << " -> BST inOrder passed" << endl;
     }
     catch(...)
@@ -392,7 +391,6 @@ void bstInOrderTest2()
         cout << "12. BST inOrder with input 0, 0, 0: ";
 
         bst.InOrder(printInt);
-        cout << endl;
         cout << " -> BST inOrder passed" << endl;
     }
     catch(...)
@@ -418,7 +416,6 @@ void bstInOrderTest3()
         cout << "13. BST inOrder with input -5, -10, -6: ";
 
         bst.InOrder(printInt);
-        cout << endl;
         cout << " -> BST inOrder passed" << endl;
     }
     catch(...)
@@ -444,7 +441,6 @@ void bstPreOrderTest1()
         cout << "14. BST preOrder with input 5, 10, 6: ";
 
         bst.PreOrder(printInt);
-        cout << endl;
         cout << " -> BST preOrder passed" << endl;
     }
     catch(...)
@@ -470,7 +466,6 @@ void bstPreOrderTest2()
         cout << "15. BST preOrder with input 0, 0, 0:";
 
         bst.PreOrder(printInt);
-        cout << endl;
         cout << " -> BST preOrder passed" << endl;
 
     }
@@ -497,7 +492,6 @@ void bstPreOrderTest3()
         cout << "16. BST preOrder with input -5, -10, -6: ";
 
         bst.PreOrder(printInt);
-        cout << endl;
         cout << " -> BST preOrder passed" << endl;
     }
     catch(...)
@@ -523,7 +517,6 @@ void bstPostOrderTest1()
         cout << "17. BST postOrder with input 5, 10, 6: ";
 
         bst.PostOrder(printInt);
-        cout << endl;
         cout << " -> BST postOrder passed" << endl;
 
     }
@@ -550,7 +543,6 @@ void bstPostOrderTest2()
         cout << "18. BST postOrder with input 0, 0, 0: ";
 
         bst.PostOrder(printInt);
-        cout << endl;
         cout << " -> BST postOrder passed" << endl;
     }
     catch(...)
@@ -576,7 +568,6 @@ void bstPostOrderTest3()
         cout << "19. BST postOrder with input -5, -10, -6: ";
 
         bst.PostOrder(printInt);
-        cout << endl;
         cout << " -> BST postOrder passed" << endl;
     }
     catch(...)
@@ -623,6 +614,7 @@ void bstMaxIntCapacitytest()
     {
         while(true)
         {
+            //cout << count << endl;
             bst.Insert(count);
             count++;
         }

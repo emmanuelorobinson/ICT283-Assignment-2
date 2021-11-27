@@ -22,6 +22,12 @@ void setTimeTest3();
 void setDateTest1();
 void setDateTest2();
 void setDateTest3();
+void testOverloadedOperator1Weather();
+void testOverloadedOperator2Weather();
+void testOverloadedOperator3Weather();
+void testOverloadedOperator4Weather();
+void testOverloadedOperator5Weather();
+void testOverloadedOperator6Weather();
 
 
 
@@ -42,6 +48,13 @@ int main4() {
     setDateTest1();
     setDateTest2();
     setDateTest3();
+    testOverloadedOperator1Weather();
+    testOverloadedOperator2Weather();
+    testOverloadedOperator3Weather();
+    testOverloadedOperator4Weather();
+    testOverloadedOperator5Weather();
+    testOverloadedOperator6Weather();
+
     return 0;
 }
 
@@ -318,4 +331,122 @@ void setDateTest3() {
         cout << "WeatherData date = " << W.GetDate().Datefunc() << " ->Unsuccessful" << '\n';
     }
 
+}
+
+void testOverloadedOperator1Weather() {
+    WeatherData W1;
+    WeatherData W2;
+    Date D1(21, 1, 2021);
+    Date D2(21, 1, 2021);
+
+    W1.SetDate(D1);
+    W2.SetDate(D2);
+
+    cout << "17, Test overloaded operator == for WeatherData: ";
+
+    if (W1 == W2) {
+        cout << "WeatherData 1 = " << W1.GetDate().Datefunc() << " WeatherData 2 = " << W2.GetDate().Datefunc() << " ->Successful" << '\n';
+    }
+    else {
+        cout << "WeatherData 1 = " << W1.GetDate().Datefunc() << " WeatherData 2 = " << W2.GetDate().Datefunc() << " ->Unsuccessful" << '\n';
+    }
+
+}
+
+void testOverloadedOperator2Weather() {
+    WeatherData W1;
+    WeatherData W2;
+    Date D1(21, 1, 2021);
+    Date D2(21, 3, 2021);
+
+    W1.SetDate(D1);
+    W2.SetDate(D2);
+
+    cout << "18, Test overloaded operator != for WeatherData: ";
+
+    if (W1 != W2) {
+        cout << "WeatherData 1 = " << W1.GetDate().Datefunc() << " WeatherData 2 = " << W2.GetDate().Datefunc() << " ->Successful" << '\n';
+    }
+    else {
+        cout << "WeatherData 1 = " << W1.GetDate().Datefunc() << " WeatherData 2 = " << W2.GetDate().Datefunc() << " ->Unsuccessful" << '\n';
+    }
+
+}
+
+void testOverloadedOperator3Weather() {
+    WeatherData W1;
+    WeatherData W2;
+    Date D1(4, 1, 2011);
+    Date D2(21, 1, 2021);
+
+    W1.SetDate(D1);
+    W2.SetDate(D2);
+
+    cout << "19, Test overloaded operator < for WeatherData: ";
+
+    if (W1 < W2) {
+        cout << "WeatherData 1 = " << W1.GetDate().Datefunc() << " WeatherData 2 = " << W2.GetDate().Datefunc() << " ->Successful" << '\n';
+    }
+    else {
+        cout << "WeatherData 1 = " << W1.GetDate().Datefunc() << " WeatherData 2 = " << W2.GetDate().Datefunc() << " ->Unsuccessful" << '\n';
+    }
+}
+
+void testOverloadedOperator4Weather() {
+    WeatherData W1;
+    WeatherData W2;
+    Date D1(4, 5, 2031);
+    Date D2(21, 1, 2021);
+
+    W1.SetDate(D1);
+    W2.SetDate(D2);
+
+    cout << "20, Test overloaded operator > for WeatherData: ";
+
+    if (W1 > W2) {
+        cout << "WeatherData 1 = " << W1.GetDate().Datefunc() << " WeatherData 2 = " << W2.GetDate().Datefunc() << " ->Successful" << '\n';
+    }
+    else {
+        cout << "WeatherData 1 = " << W1.GetDate().Datefunc() << " WeatherData 2 = " << W2.GetDate().Datefunc() << " ->Unsuccessful" << '\n';
+    }
+}
+
+void testOverloadedOperator5Weather() {
+    WeatherData W1;
+    WeatherData W2;
+
+    Date D1(4, 5, 2031);
+    Date D2(21, 1, 2021);
+
+    W1.SetDate(D1);
+    W2.SetDate(D2);
+
+    cout << "21, Test overloaded operator <= for WeatherData: ";
+
+    if (W1 <= W2) {
+        cout << "WeatherData 1 = " << W1.GetDate().Datefunc() << " WeatherData 2 = " << W2.GetDate().Datefunc() << " ->Successful" << '\n';
+    }
+    else {
+        cout << "WeatherData 1 = " << W1.GetDate().Datefunc() << " WeatherData 2 = " << W2.GetDate().Datefunc() << " ->Unsuccessful" << '\n';
+    }
+}
+
+void testOverloadedOperator6Weather() {
+    WeatherData W1;
+    WeatherData W2;
+
+    Date D1(21, 1, 2021);
+    Date D2(21, 1, 2021);
+
+    W1.SetDate(D1);
+    W2.SetDate(D2);
+
+    cout << "22, Test overloaded operator >= for WeatherData: ";
+
+    if (W1 >= W2) {
+        cout << "WeatherData 1 = " << W1.GetDate().Datefunc() << " WeatherData 2 = " << W2.GetDate().Datefunc() << " ->Successful" << '\n';
+    }
+    else {
+        cout << "WeatherData 1 = " << W1.GetDate().Datefunc() << " WeatherData 2 = " << W2.GetDate().Datefunc() << " ->Unsuccessful" << '\n';
+    }
 }
