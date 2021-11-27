@@ -40,9 +40,9 @@ void monthlyConstructorTest()
 {
     Monthly monthly;
 
-    if(typeid(monthly) == typeid(Monthly))
+    if(typeid(monthly) == typeid(Monthly) && monthly.GetYMK() == 0)
     {
-        cout << "1. Default consturctor test: -> Successful" << endl;
+        cout << "1. Default consturctor test: -> Successful with key: " << monthly.GetYMK() << endl;
     }
     else
     {
@@ -54,13 +54,13 @@ void monthlyNonDefaultConstructorTest()
 {
     Monthly monthly(201323);
 
-    if(typeid(monthly) == typeid(Monthly))
+    if(typeid(monthly) == typeid(Monthly) && monthly.GetYMK() == 201323)
     {
-        cout << "2. Non Default consturctor test: -> Successful" << endl;
+        cout << "2. Non-default consturctor test: -> Successful with key: " << monthly.GetYMK() << endl;
     }
     else
     {
-        cout << "2. Non Default consturctor test: -> Unsuccessful" << endl;
+        cout << "2. Non-default consturctor test: -> Unsuccessful" << endl;
     }
 }
 
