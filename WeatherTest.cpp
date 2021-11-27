@@ -32,6 +32,8 @@ void testOverloadedOperator6Weather();
 
 
 int main4() {
+    cout << "Testing the WeatherData class\n";
+
     weatherConstructorTest();
     setWindSpeedTest1();
     setWindSpeedTest2();
@@ -415,7 +417,7 @@ void testOverloadedOperator5Weather() {
     WeatherData W1;
     WeatherData W2;
 
-    Date D1(4, 5, 2031);
+    Date D1(4, 5, 2011);
     Date D2(21, 1, 2021);
 
     W1.SetDate(D1);

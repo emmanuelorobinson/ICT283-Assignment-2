@@ -57,12 +57,13 @@ int main5()
     bstPostOrderTest1();
     bstPostOrderTest2();
     bstPostOrderTest3();
+    bstDeleteTest();
     bstInsertTest4();
+    bstTypeTest();
     //bstMaxIntCapacitytest();
     bstMaxFloatCapacitytest();
     bstMaxStringCapacitytest();
-    bstTypeTest();
-    bstDeleteTest();
+
 
     return 0;
 }
@@ -159,14 +160,25 @@ void bstDestructorTest()
     try
     {
         BST<int> bst1;
+
+        int num1 = 4;
+        int num2 = 6;
+        int num3 = 46;
+
+        bst1.Insert(num1);
+        bst1.Insert(num2);
+        bst1.Insert(num3);
+
         bst1.~BST();
-        if(typeid(bst1) != typeid(BST<int>))
+        if(typeid(bst1) != typeid(BST<int>) && bst1.Search(num1) && bst1.Search(num2) && bst1.Search(num3))
         {
-            cout << " -> BST destructor failed" << endl;
+            cout << " -> BST destructor failed: " << endl;
         }
         else
         {
-            cout << " -> BST destructor passed" << endl;
+            cout << " -> BST destructor passed: ";
+            bst1.PreOrder(printInt);
+            cout << endl;
         }
     }
     catch(...)
@@ -177,7 +189,6 @@ void bstDestructorTest()
 
 void bstInsertTest1()
 {
-    //cout << "Testing BST insert" << endl;
     try
     {
         BST<int> bst;
@@ -191,7 +202,9 @@ void bstInsertTest1()
 
         if(bst.Search(num) == true && bst.Search(num2) == true)
         {
-            cout << " -> BST insert passed" << endl;
+            cout << " -> BST insert passed: ";
+            bst.InOrder(printInt);
+            cout << endl;
         }
         else
         {
@@ -206,7 +219,6 @@ void bstInsertTest1()
 
 void bstInsertTest2()
 {
-    //cout << "Testing BST insert" << endl;
     try
     {
         BST<int> bst;
@@ -220,7 +232,9 @@ void bstInsertTest2()
 
         if (bst.Search(num) == true && bst.Search(num2) == true)
         {
-            cout << " -> BST insert passed" << endl;
+            cout << " -> BST insert passed";
+            bst.InOrder(printInt);
+            cout << endl;
         }
         else
         {
@@ -235,7 +249,6 @@ void bstInsertTest2()
 
 void bstInsertTest3()
 {
-    //cout << "Testing BST insert" << endl;
     try
     {
         BST<int> bst;
@@ -249,7 +262,9 @@ void bstInsertTest3()
 
         if(bst.Search(num) == true && bst.Search(num2) == true)
         {
-            cout << " -> BST insert passed" << endl;
+            cout << " -> BST insert passed: ";
+            bst.InOrder(printInt);
+            cout << endl;
         }
         else
         {
@@ -278,7 +293,7 @@ void bstSearchTest1()
 
         if(bst.Search(num) == true && bst.Search(num2) == true)
         {
-            cout << " -> BST search passed";
+            cout << " -> BST search passed" << endl;
         }
         else
         {
@@ -303,11 +318,11 @@ void bstSearchTest2()
         bst.Insert(num);
         bst.Insert(num2);
 
-        cout << "9. BST search with input 0, 0: " << endl;
+        cout << "9. BST search with input 0, 0: ";
 
         if(bst.Search(num) == true && bst.Search(num2) == true)
         {
-            cout << " -> BST search passed";
+            cout << " -> BST search passed" << endl;
         }
         else
         {
@@ -579,26 +594,26 @@ void bstPostOrderTest3()
 void bstDeleteTest()
 {
     //cout << "Testing BST delete" << endl;
-    try
-    {
-        BST<int> bst;
-        int num = 5;
-        int num2 = 10;
-        int num3 = 6;
+    BST<int> bst;
+    int num = 5;
+    int num2 = 10;
+    int num3 = 6;
 
-        bst.Insert(num);
-        bst.Insert(num2);
-        bst.Insert(num3);
+    bst.Insert(num);
+    bst.Insert(num2);
+    bst.Insert(num3);
 
-        cout << "20. BST delete with input 5, 10, 6: ";
+    cout << "20. BST delete with input 5, 10, 6: ";
 
-        bst.DeleteTree();
+    bst.DeleteTree();
 
-        cout << " -> BST delete passed" << endl;
-    }
-    catch(...)
+    if(bst.Search(num) && bst.Search(num2) && bst.Search(num3))
     {
         cout << " -> BST delete failed" << endl;
+    }
+    else
+    {
+        cout << " -> BST delete passed" << endl;
     };
 }
 
@@ -635,7 +650,7 @@ void bstMaxFloatCapacitytest()
     int count = 0;
     float val = 1.00000001;
 
-    cout << "22. BST Maximum capacity of float test: ";
+    cout << "25. BST Maximum capacity of float test: ";
 
     try
     {
@@ -647,7 +662,7 @@ void bstMaxFloatCapacitytest()
     }
     catch(...)
     {
-        cout << "passed" << endl;
+        cout << "passed: ";
     }
 
     cout << count << endl;
@@ -661,7 +676,7 @@ void bstMaxStringCapacitytest()
     int count = 0;
     string val = "Yay";
 
-    cout << "23. BST Maximum capacity of string test: ";
+    cout << "26. BST Maximum capacity of string test: ";
 
     try
     {
@@ -686,7 +701,7 @@ void bstTypeTest()
     BST<float> floatBST;
     BST<string> stringBST;
 
-    cout << "24. BST Type test: ";
+    cout << "22. BST Type test: ";
     if(typeid(intBST) == typeid(BST<int>))
     {
         cout << "Integer BST passed" << endl;
@@ -696,7 +711,7 @@ void bstTypeTest()
         cout << "Integer BST failed" << endl;
     }
 
-    cout << "25. BST Type test: ";
+    cout << "23. BST Type test: ";
     if(typeid(floatBST) == typeid(BST<float>))
     {
         cout << "Float BST passed" << endl;
@@ -706,7 +721,7 @@ void bstTypeTest()
         cout << "Float BST failed" << endl;
     }
 
-    cout << "26. BST Type test: ";
+    cout << "24. BST Type test: ";
     if(typeid(stringBST) == typeid(BST<string>))
     {
         cout << "String BST passed" << endl;
@@ -732,7 +747,7 @@ void bstInsertTest4()
         bst.Insert(date2);
         bst.Insert(date3);
 
-        cout << "27. BST insert with date input:";
+        cout << "21. BST insert with date input:";
 
         if (bst.Search(date1) && bst.Search(date2) && bst.Search(date3))
         {

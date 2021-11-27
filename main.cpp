@@ -406,7 +406,7 @@ bool option5(MonthlyBST &bst)
     int day, month, year;
     string date;
 
-    cout << "Please enter a date in the form d/m/yyyy: ";
+    cout << "Please enter a date in the form d/m/yyyy (Please include '/' E.g.: 21/5/2021): ";
 
     //split date by / to get day, month and year
     getline(cin, date, '/');
