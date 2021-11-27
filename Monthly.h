@@ -37,16 +37,6 @@ public:
 
     Monthly(int ykey);
 
-    /** \brief Monthly object destructor. Used to delete monthly object
-     *
-     * \param
-     * \param
-     * \return
-     *
-     */
-
-    ~Monthly();
-
     /** \brief Getter method for ymkey
      *
      * \param

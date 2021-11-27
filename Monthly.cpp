@@ -10,11 +10,6 @@ Monthly::Monthly(int ykey)
     ymkey = ykey;
 }
 
-Monthly::~Monthly()
-{
-    //dtor
-}
-
 int Monthly::GetYMK()
 {
     return ymkey;
@@ -39,8 +34,7 @@ void Monthly::AddWeatherData(int dhmkey, WeatherData wd)
         //key does not exist
         //create a new key
         dataMap.insert(std::pair<int, WeatherData>(dhmkey, wd));
-        //dhmkeys.push_back(key);
-        //dataMap.emplace(key, wd);
+
     }
     else
     {
@@ -48,7 +42,6 @@ void Monthly::AddWeatherData(int dhmkey, WeatherData wd)
         //replace the weather data object
         dataMap.erase(dhmkey);
         dataMap.insert(std::pair<int, WeatherData>(dhmkey, wd));
-        //dataMap.emplace(key, wd);
     }
 
 }
@@ -166,7 +159,7 @@ float Monthly::GetHighestSolarRadiation(int dhmkey)
 {
     //Calculates the highest solar radiation for all the hours and minutes in the day part of the dhmkey
     //returns the highest solar radiation
-    //dhmkey (day*100) + (hour*100) + minute
+
     float highestSolarRadiation = 0;
 
     //iterate through the map
@@ -200,10 +193,6 @@ float Monthly::GetHighestSolarRadiation(int dhmkey)
 void Monthly::GetHighestSolarRadiationTimes(int dhmkey, float highestSR)
 {
     //returns the times of a day where solar radiation is the same as highestSR
-    //dhmkey (day*100) + (hour*100) + minute
-    //highestSR is the highest solar radiation
-    //times is a vector of times
-    //times is printed to the console
 
     //iterate through the map
     for(std::map<int, WeatherData>::iterator it = dataMap.begin(); it != dataMap.end(); ++it)
@@ -224,17 +213,11 @@ void Monthly::GetHighestSolarRadiationTimes(int dhmkey, float highestSR)
             //if the solar radiation is the same as the highest solar radiation
             if(solarRadiation == highestSR)
             {
-                //add the key to the vector
-
-                cout << "Time: " << hour << ":" << minute << endl;
+                //cout the hour and minute
+                cout << hour << ":" << minute << endl;
             }
         }
     }
-    /*
-        //print the vector to the console
-        for(int i = 0; i < times.size(); i++){
-            std::cout << times[i] << std::endl;
-        } */
 }
 
 bool Monthly::operator!=(Monthly &M)

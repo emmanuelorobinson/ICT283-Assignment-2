@@ -96,9 +96,8 @@ bool readFile(MonthlyBST &bst)
 
     infile.close();
 
-    //iterate through entryMap and call GetYMK() on each Monthly object
-    //insert into MonthlyBST
 
+    //insert into MonthlyBST
     for (MonthlyMap::iterator it = entryMap.begin(); it != entryMap.end(); ++it)
     {
         bst.Insert(it->second);
@@ -290,9 +289,6 @@ bool option2(MonthlyBST &bst)
 
     readYearChoice(year);
 
-
-    //WeatherData tmpWindlog;
-
     for (int m = 1; m < 13; m++)
     {
 
@@ -425,7 +421,6 @@ bool option5(MonthlyBST &bst)
     bst.Search(entryMonth);
 
     //for each hour and minute in the day calculate the highest solar radiation
-
     float highestSR = 0;
 
     for(int h = 0; h < 24; h++)
@@ -461,7 +456,6 @@ bool option5(MonthlyBST &bst)
             entryMonth.GetHighestSolarRadiationTimes(dhmkey, highestSR);
         }
     }
-   // entryMonth.GetHighestSolarRadiationTimes(dhmkey, highestSR);
 
     return true;
 
