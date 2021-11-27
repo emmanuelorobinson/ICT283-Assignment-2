@@ -34,7 +34,7 @@ void bstTypeTest();
 void bstInsertTest4();
 
 
-int main()
+int main5()
 {
 
     cout << "Testing BST class" << endl;

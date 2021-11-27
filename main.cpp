@@ -26,7 +26,7 @@ bool option4(MonthlyBST &bst);
 bool option5(MonthlyBST &bst);
 string FullMonth(int month);
 
-int main1()
+int main()
 {
     MonthlyBST bst;
     readFile(bst);
@@ -193,7 +193,7 @@ bool menu(MonthlyBST &bst)
             cout << "\nInvalid option... Please try again\n";
         }
     }
-    while (userChoice != 5);
+    while (userChoice != 6);
 
     return true;
 }
@@ -376,7 +376,7 @@ bool option4(MonthlyBST &bst)
 
         averageWSpeed = entryMonth.MonthlyAverageWindSpeed();
         averageAmbAir = entryMonth.MonthlyAverageAmbientTemp();
-        totalSR = entryMonth.MonthlyTotalSolarRadiationAboveHundred();
+        totalSR = entryMonth.MonthlyTotalSolarRadiation();
 
         if (averageAmbAir > 0 && averageWSpeed > 0 && totalSR > 0)
         {
@@ -404,13 +404,19 @@ bool option5(MonthlyBST &bst)
 {
     //Given a Date in the form d/m/yyyy, show the times for the highest solar radiation for the Date
     int day, month, year;
+    string date;
 
-    cout << "Enter day: ";
-    cin >> day;
-    cout << "Enter month: ";
-    cin >> month;
-    cout << "Enter year: ";
-    cin >> year;
+    cout << "Please enter a date in the form d/m/yyyy: ";
+
+    //split date by / to get day, month and year
+    getline(cin, date, '/');
+    day = stoi(date);
+    getline(cin, date, '/');
+    month = stoi(date);
+    getline(cin, date, '\n');
+    year = stoi(date);
+
+    cout << endl;
 
     cout << "Date: " << day << "/" << month << "/" << year << "\n";
 
@@ -458,6 +464,4 @@ bool option5(MonthlyBST &bst)
     }
 
     return true;
-
-
 }

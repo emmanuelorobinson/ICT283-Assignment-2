@@ -96,16 +96,6 @@ public:
 
     float MonthlyTotalSolarRadiation();
 
-    /** \brief Used to calculate the monthly average total solar radiation above 100 in dataMap
-     *
-     * \param
-     * \param
-     * \return
-     *
-     */
-
-    float MonthlyTotalSolarRadiationAboveHundred();
-
     /** \brief Used to calculate the monthly average ambient air temperature in dataMap
      *
      * \param
