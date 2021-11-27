@@ -34,7 +34,7 @@ void bstTypeTest();
 void bstInsertTest4();
 
 
-int main5()
+int main()
 {
 
     cout << "Testing BST class" << endl;
@@ -91,7 +91,7 @@ void bstConstructorTest()
 
 void bstCopyConstructorTest()
 {
-    cout << "2. Testing BST copy constructor: ";
+    cout << "2. Testing BST copy constructor with 5, 10, 15: ";
     try
     {
         BST<int> bst1;
@@ -107,7 +107,6 @@ void bstCopyConstructorTest()
         if(bst2.Search(num) && bst2.Search(num2) && bst2.Search(num3))
         {
             bst2.InOrder(printInt);
-            cout << endl;
             cout << " -> BST copy constructor passed" << endl;
         }
         else
@@ -123,7 +122,7 @@ void bstCopyConstructorTest()
 
 void operatorTest()
 {
-    cout << "3. Testing BST operator: ";
+    cout << "3. Testing BST operator with 5, 10, 15: ";
     try
     {
         BST<int> bst1;
@@ -140,7 +139,6 @@ void operatorTest()
         if(bst2.Search(num) && bst2.Search(num2) && bst2.Search(num3))
         {
             bst2.InOrder(printInt);
-            cout << endl;
             cout << " -> BST operator passed" << endl;
         }
         else

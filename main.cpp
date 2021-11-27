@@ -26,7 +26,7 @@ bool option4(MonthlyBST &bst);
 bool option5(MonthlyBST &bst);
 string FullMonth(int month);
 
-int main()
+int main1()
 {
     MonthlyBST bst;
     readFile(bst);

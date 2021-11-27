@@ -53,7 +53,7 @@ public:
      *
      */
 
-    BST(const BST &newBST);
+    BST(const BST<T> &newBST);
 
     /** \brief BST overloaded operator. Copies the nodes of one BST to another
      *
@@ -63,7 +63,7 @@ public:
      *
      */
 
-    BST& operator=(const BST &newBST);
+    BST& operator=(const BST<T> &newBST);
 
     /** \brief CopyTree is a help function which copes each element of one tree to another
      *
@@ -161,7 +161,7 @@ BST<T>::~BST()
 
 template <class T>
 //copy constructor recursively
-BST<T>::BST(const BST &newBST)
+BST<T>::BST(const BST<T> &newBST)
 {
     if(newBST.root == nullptr)
     {
@@ -192,7 +192,7 @@ void BST<T>::CopyTree(node<T>* &newRoot, node<T>* oldRoot)
 }
 
 template <class T>
-BST<T>& BST<T>::operator=(const BST &newBST)
+BST<T>& BST<T>::operator=(const BST<T> &newBST)
 {
     if(this != &newBST)
     {
