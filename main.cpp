@@ -271,7 +271,7 @@ bool option1(MonthlyBST &bst)
     if (averageAmbAir > 0 && averageWSpeed > 0)
     {
         cout << FullMonth(month) << " " << year << ": " << averageWSpeed << " km/h, ";
-        cout << averageAmbAir << " degrees C";
+        cout << averageAmbAir << " degrees C \n";
         return true;
     }
     else
@@ -460,7 +460,7 @@ bool option5(MonthlyBST &bst)
 
     if (highestSR > 0)
     {
-        cout << "The highest solar radiation was " << highestSR << " W/m^2\n" << endl;// h << ":" << m << "\n";
+        cout << "High solar radiation for the day: " << highestSR << " W/m^2\n" << endl;// h << ":" << m << "\n";
     }
 
     //get times with highest solar radiation
