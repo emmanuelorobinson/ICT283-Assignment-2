@@ -100,7 +100,7 @@ float Monthly::MonthlyTotalSolarRadiation()
         //get the solar radiation
         float solarRadiation = it->second.GetSolarRadiation();
         //add the solar radiation to the total
-        if(solarRadiation > 100)
+        if(solarRadiation >= 100)
         {
             totalSolarRadiation += solarRadiation;
         }
@@ -147,14 +147,8 @@ float Monthly::GetHighestSolarRadiation(int dhmkey)
         float solarRadiation = it->second.GetSolarRadiation();
         //get the key
         int key = it->first;
-        //get the day
-        int day = key / 10000;
-        //get the hour
-        int hour = (key % 10000) / 100;
-        //get the minute
-        int minute = key % 100;
-        //if the day, hour and minute are the same as the dhmkey
-        if(day == dhmkey / 10000 && hour == (dhmkey % 10000) / 100 && minute == dhmkey % 100)
+
+        if(dhmkey == key)
         {
             //if the solar radiation is higher than the highest solar radiation
             if(solarRadiation > highestSolarRadiation)
@@ -179,20 +173,14 @@ void Monthly::GetHighestSolarRadiationTimes(int dhmkey, float highestSR)
         float solarRadiation = it->second.GetSolarRadiation();
         //get the key
         int key = it->first;
-        //get the day
-        int day = key / 10000;
-        //get the hour
-        int hour = (key % 10000) / 100;
-        //get the minute
-        int minute = key % 100;
-        //if the day, hour and minute are the same as the dhmkey
-        if(day == dhmkey / 10000 && hour == (dhmkey % 10000) / 100 && minute == dhmkey % 100)
+
+        if(dhmkey == key)
         {
             //if the solar radiation is the same as the highest solar radiation
             if(solarRadiation == highestSR)
             {
                 //cout the hour and minute
-                cout << hour << ":" << minute << endl;
+                cout << it->second.GetTime().GetHour() << ":" << it->second.GetTime().GetMinute() << endl;
             }
         }
     }

@@ -23,10 +23,11 @@ bool option1(MonthlyBST &bst);
 bool option2(MonthlyBST &bst);
 bool option3(MonthlyBST &bst);
 bool option4(MonthlyBST &bst);
-bool option5(MonthlyBST &bst);
+bool option5(MonthlyBST &bst); //bounus question
 string FullMonth(int month);
+void forMainTest();
 
-int main1()
+int main()
 {
     MonthlyBST bst;
     readFile(bst);
@@ -261,7 +262,7 @@ bool option1(MonthlyBST &bst)
 
     int key = getYearMonthKey(year, month);
 
-    Monthly entryMonth = key;
+    Monthly entryMonth(key);
 
     bst.Search(entryMonth);
 
@@ -330,7 +331,7 @@ bool option3(MonthlyBST &bst)
         float totalSR = 0;
 
         int key = getYearMonthKey(year, m);
-        Monthly entryMonth = key;
+        Monthly entryMonth(key);
 
         bst.Search(entryMonth);
 
@@ -370,7 +371,7 @@ bool option4(MonthlyBST &bst)
         float totalSR = 0;
 
         int key = getYearMonthKey(year, m);
-        Monthly entryMonth = key;
+        Monthly entryMonth(key);
 
         bst.Search(entryMonth);
 
@@ -406,15 +407,28 @@ bool option5(MonthlyBST &bst)
     int day, month, year;
     string date;
 
-    cout << "Please enter a date in the form d/m/yyyy (Please include '/' E.g.: 21/5/2021): ";
-
+    cout << "\nPlease enter a date in the form d/m/yyyy (Please include '/' E.g.: 21/5/2021): ";
+    
+    int check = 0;
     //split date by / to get day, month and year
-    getline(cin, date, '/');
-    day = stoi(date);
-    getline(cin, date, '/');
-    month = stoi(date);
-    getline(cin, date, '\n');
-    year = stoi(date);
+    while (check == 0)
+    {
+        try
+        {
+            getline(cin, date, '/');
+            day = stoi(date);
+            getline(cin, date, '/');
+            month = stoi(date);
+            getline(cin, date, '\n');
+            year = stoi(date);
+            check = 1;
+        }
+        catch(...)
+        {
+            cin.clear();
+            cout << "\nInvalid date format. Please try again(d/m/yyyy): ";
+        }
+    }
 
     cout << endl;
 
@@ -422,7 +436,7 @@ bool option5(MonthlyBST &bst)
 
     int key = getYearMonthKey(year, month);
 
-    Monthly entryMonth = key;
+    Monthly entryMonth(key);
 
     bst.Search(entryMonth);
 
@@ -464,4 +478,10 @@ bool option5(MonthlyBST &bst)
     }
 
     return true;
+}
+
+//The following lines of code are used to test the main program for outputs
+//that cannot be gotten from just running the main program
+void forMainTest() {
+    cout << "Testing forMainTest()\n";
 }

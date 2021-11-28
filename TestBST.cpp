@@ -34,7 +34,7 @@ void bstTypeTest();
 void bstInsertTest4();
 
 
-int main()
+int main5()
 {
 
     cout << "Testing BST class" << endl;
@@ -60,9 +60,9 @@ int main()
     bstDeleteTest();
     bstInsertTest4();
     bstTypeTest();
-    //bstMaxIntCapacitytest();
-    bstMaxFloatCapacitytest();
-    bstMaxStringCapacitytest();
+    bstMaxIntCapacitytest();
+    //bstMaxFloatCapacitytest();
+    //bstMaxStringCapacitytest();
 
 
     return 0;
@@ -619,22 +619,23 @@ void bstMaxIntCapacitytest()
 {
     BST<int> bst;
 
-    int count = 1;
+    int count = 0;
+    int num = 1;
 
-    cout << "21. BST Maximum capacity of integer test: ";
+    cout << "27. BST Maximum capacity of integer test: ";
 
     try
     {
         while(true)
         {
             //cout << count << endl;
-            bst.Insert(count);
+            bst.Insert(num);
             count++;
         }
     }
     catch(...)
     {
-        cout << "passed" << endl;
+        cout << "passed: ";
     }
 
     cout << count << endl;
@@ -686,7 +687,7 @@ void bstMaxStringCapacitytest()
     }
     catch(...)
     {
-        cout << "passed" << endl;
+        cout << "passed: ";
     }
 
     cout << count << endl;
