@@ -276,7 +276,7 @@ bool option1(MonthlyBST &bst)
     }
     else
     {
-        cout << FullMonth(month) << " " << year << ": No Data";
+        cout << FullMonth(month) << " " << year << ": No Data\n";
         return false;
     }
 
