@@ -25,7 +25,6 @@ bool option3(MonthlyBST &bst);
 bool option4(MonthlyBST &bst);
 bool option5(MonthlyBST &bst); //bounus question
 string FullMonth(int month);
-void forMainTest();
 
 int main()
 {
@@ -408,7 +407,7 @@ bool option5(MonthlyBST &bst)
     string date;
 
     cout << "\nPlease enter a date in the form d/m/yyyy (Please include '/' E.g.: 21/5/2021): ";
-    
+
     int check = 0;
     //split date by / to get day, month and year
     while (check == 0)
@@ -480,8 +479,3 @@ bool option5(MonthlyBST &bst)
     return true;
 }
 
-//The following lines of code are used to test the main program for outputs
-//that cannot be gotten from just running the main program
-void forMainTest() {
-    cout << "Testing forMainTest()\n";
-}
